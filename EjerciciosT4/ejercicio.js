@@ -94,7 +94,8 @@ function ej5(anio, mes) {
 
     var calendario = "<table><tr><th>" + dias[0] + "</th><th>" + dias[1] + "</th><th>" + dias[2] + "</th><th>" + dias[3] + "</th><th>" + dias[4] + "</th><th>" + dias[5] + "</th><th>" + dias[6] + "</th></tr>";
     var diasdemes = diasDelMes(mes);
-    for (var i = 1; i <= (diasdemes + 1); i++) {
+    for (var i = 2; i <= (diasdemes + 1); i++) {
+        i--;
         calendario += "<tr>"
         for (var j = 0; j < 7; j++) {
             if (diaSemana) {
@@ -112,6 +113,7 @@ function ej5(anio, mes) {
                 }
             }
         }
+        
         calendario += "</tr>"
     }
     calendario += "</table>"
