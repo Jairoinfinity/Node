@@ -7,7 +7,7 @@ http.createServer(function(request, response) {
     var ca = url.parse(request.url, true)
     response.end(peticion(ca.pathname, ca.query));
 
-}).listen(8080, "localhost");
+}).listen(8081, "localhost");
 console.log("Servidor corriendo en http://localhost:8080");
 
 function peticion(path, q) {
