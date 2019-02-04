@@ -14,8 +14,8 @@ http.createServer(function(request, response){
                 {
                     throw err;
                 }
-                respuesta.write('Fichero subido y movido correctamente!');
-                respuesta.end();
+                response.write('Fichero subido y movido correctamente!');
+                response.end();
             });
         });
     }else{
@@ -26,6 +26,6 @@ http.createServer(function(request, response){
             <input type="submit">
             </form>
         `;
-        respuesta.end(formulario);
+        response.end(formulario);
     }
 }).listen(8080,"localhost");
