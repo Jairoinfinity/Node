@@ -10,4 +10,10 @@ api.get("/fruta/:id", FrutaController.getFruta);
 //url por donde se insertan datos
 api.post("/fruta", FrutaController.saveFruta);
 
+//url por donde se actualizan los datos
+api.put("/fruta/:id", FrutaController.updateFruta);
+
+//url por donde se elimina
+api.delete("/fruta/:id", FrutaController.deleteFruta);
+
 module.exports = api;

@@ -87,9 +87,60 @@ function getFruta(request, response) {
     });
 }
 
+//Funcion para actualizar fruta
+function updateFruta(request, response) {
+    var frutaId = request.params.id;
+    var update = request.body;
+
+    Fruta.findOneAndUpdate(frutaId, update, { new: true }, (err, frutaUpdated) => {
+        if (err) {
+            response.status(500).send({
+                menssage: "Error en el servidor."
+            });
+        } else {
+            if (frutaUpdated) {
+                response.status(200).send({
+                    fruta: frutaUpdated
+                });
+            } else {
+                response.status(404).send({
+                    menssage: "No se actualizo la fruta."
+                });
+            }
+
+        }
+    });
+}
+
+//Funcion para borrar la fruta por id
+function deleteFruta(request, response) {
+    var frutaId = request.params.id;
+
+    Fruta.findOneAndRemove(frutaId, (err, frutaRemoved) => {
+        if (err) {
+            response.status(500).send({
+                menssage: "Error en el servidor."
+            });
+        } else {
+            if (frutaRemoved) {
+                response.status(200).send({
+                    fruta: frutaRemoved
+                });
+            } else {
+                response.status(404).send({
+                    menssage: "No se actualizo la fruta."
+                });
+            }
+
+        }
+    })
+}
+
 module.exports = {
     pruebas,
     saveFruta,
     getFrutas,
-    getFruta
+    getFruta,
+    updateFruta,
+    deleteFruta
 }
